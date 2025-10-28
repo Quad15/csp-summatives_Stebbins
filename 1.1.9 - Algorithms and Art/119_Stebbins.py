@@ -19,6 +19,9 @@ pizza.fillcolor("gold")
 #size of pizza/painter
 pizza.pensize(50)
 
+# list of topping turtles 
+toppings = [pep, mush, pinapple]
+
 #draw pizza shape  
 pizza.penup()
 pizza.goto(0,-250)
