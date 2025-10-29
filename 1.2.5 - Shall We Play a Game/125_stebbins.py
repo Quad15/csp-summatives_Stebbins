@@ -13,25 +13,30 @@ leader_names_list = lb.get_names('125_leaderboard.txt')
 leader_scores_list = lb.get_scores('125_leaderboard.txt')
 player_name = player_name[:max_chars]
 
-'''poacher1.shape("poacher1.gif")
-poacher2 = "poacher2.gif"
-poacher3 = "poacher3.gif"
-poacher4 = "poacher4.gif"
-hippo = "hippo.gif"'''
-
 wn.register_shape("poacher1.gif") 
 wn.register_shape("poacher2.gif") 
 wn.register_shape("poacher3.gif")
 wn.register_shape("poacher4.gif")
-wn.register_shape("hippo.gif")  
+wn.register_shape("hippo.gif") 
 
-poacher1 = trtl.Turtle(shape = "poacher1")
-poacher2 = trtl.Turtle(shape = "poacher2.gif")
-poacher3 = trtl.Turtle(shape = "poacher3.gif")
-poacher4 = trtl.Turtle(shape = "poacher4.gif")
-hippo = trtl.Turtle(shape = "hippo.gif")
+poacher11="poacher1.gif"
+poacher22 = "poacher2.gif"
+poacher33 = "poacher3.gif"
+poacher44 = "poacher4.gif"
+hippo1 = "hippo.gif"
 
-poacher1.shape("poacher1.gif")
+
+poacher1 = trtl.Turtle(shape = poacher11)
+poacher1.hideturtle()
+poacher2 = trtl.Turtle(shape = poacher22)
+poacher2.hideturtle()
+poacher3 = trtl.Turtle(shape = poacher33)
+poacher3.hideturtle()
+poacher4 = trtl.Turtle(shape = poacher44)
+poacher4.hideturtle()
+hippo = trtl.Turtle(shape = hippo1)
+hippo.hideturtle()
+
 
 
 #poachers = [poacher1,poacher2,poacher3,poacher4]

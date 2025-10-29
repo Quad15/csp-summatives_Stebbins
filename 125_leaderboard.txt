@@ -1,3 +1,5 @@
 bruh,7
 bruh,6
+,0
+os,0
 bruh,0
