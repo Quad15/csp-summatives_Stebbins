@@ -25,7 +25,6 @@ poacher33 = "poacher3.gif"
 poacher44 = "poacher4.gif"
 hippo1 = "hippo.gif"
 
-
 poacher1 = trtl.Turtle(shape = poacher11)
 poacher1.hideturtle()
 poacher2 = trtl.Turtle(shape = poacher22)
@@ -36,10 +35,6 @@ poacher4 = trtl.Turtle(shape = poacher44)
 poacher4.hideturtle()
 hippo = trtl.Turtle(shape = hippo1)
 hippo.hideturtle()
-
-
-
-#poachers = [poacher1,poacher2,poacher3,poacher4]
 
 score = 0
 font_setup = ('Arial',30,'normal')
@@ -99,6 +94,75 @@ def manage_leaderboard():
 #-----events----------------
 counter.penup()
 counter.goto(70,170)
+poacher1.penup()
+poacher1.goto(50,30)
+poacher1.showturtle()
+poacher1.shapesize()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 wn.listen
