@@ -101,72 +101,8 @@ poacher1.shapesize()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 wn.listen
 wn.ontimer(countdown, counter_interval) 
 wn.bgpic("background.gif")
-wn.setup(width=600, height=400)
+wn.setup(width=848, height=539)
 wn.mainloop()
