@@ -95,9 +95,26 @@ def manage_leaderboard():
 counter.penup()
 counter.goto(70,170)
 poacher1.penup()
-poacher1.goto(50,30)
+poacher1.goto(-225,150)
 poacher1.showturtle()
 poacher1.shapesize()
+poacher2.penup()
+poacher2.goto(-225,48)
+poacher2.showturtle()
+poacher2.shapesize()
+poacher3.penup()
+poacher3.goto(-225,-60)
+poacher3.showturtle()
+poacher3.shapesize()
+poacher4.penup()
+poacher4.goto(-225,-150)
+poacher4.showturtle()
+poacher4.shapesize()
+hippo.penup()
+hippo.goto(225,0)
+hippo.showturtle()
+hippo.shapesize()
+
 
 
 
