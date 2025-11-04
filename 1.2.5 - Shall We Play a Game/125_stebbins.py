@@ -25,17 +25,20 @@ poacher33 = "poacher3.gif"
 poacher44 = "poacher4.gif"
 hippo1 = "hippo.gif"
 
-poacher1 = trtl.Turtle(shape = poacher11)
-poacher1.hideturtle()
-poacher2 = trtl.Turtle(shape = poacher22)
-poacher2.hideturtle()
-poacher3 = trtl.Turtle(shape = poacher33)
-poacher3.hideturtle()
-poacher4 = trtl.Turtle(shape = poacher44)
-poacher4.hideturtle()
-hippo = trtl.Turtle(shape = hippo1)
-hippo.hideturtle()
+poacher1 = trtl.Turtle(shape=poacher11)
+poacher2 = trtl.Turtle(shape=poacher22)
+poacher3 = trtl.Turtle(shape=poacher33)
+poacher4 = trtl.Turtle(shape=poacher44)
+hippo = trtl.Turtle(shape=hippo1)
 
+for p in [poacher1, poacher2, poacher3, poacher4]:
+    p.penup()
+    p.speed(0)
+hippo.penup()
+hippo.speed(0)
+
+
+#--score-------------------------------------
 score = 0
 font_setup = ('Arial',30,'normal')
 score_writer = trtl.Turtle()
@@ -51,13 +54,15 @@ timer_up = False
 
 #counter wirter----------------------------
 counter =  trtl.Turtle()
+counter.hideturtle()
+counter.penup()
+counter.goto(70,170)
 #-----game functions--------
 
 def change_score():
-    score_writer.clear()
     global score 
     score += 1
-    score_writer.pendown()
+    score_writer.clear()
     score_writer.write(score,font=font_setup)
     
 def countdown():
@@ -77,8 +82,6 @@ def countdown():
 def manage_leaderboard():
 
   global score
-  global spot
-
   # get the names and scores from the leaderboard file
   leader_names_list = lb.get_names(leaderboard_file_name)
   leader_scores_list = lb.get_scores(leaderboard_file_name)
@@ -86,39 +89,61 @@ def manage_leaderboard():
   # show the leaderboard with or without the current player
   if (len(leader_scores_list) < 5 or score >= leader_scores_list[4]):
     lb.update_leaderboard(leaderboard_file_name, leader_names_list, leader_scores_list, player_name, score)
-    lb.draw_leaderboard(True, leader_names_list, leader_scores_list, spot, score)
+    lb.draw_leaderboard(True, leader_names_list, leader_scores_list, hippo, score)
 
   else:
-    lb.draw_leaderboard(False, leader_names_list, leader_scores_list, spot, score)
+    lb.draw_leaderboard(False, leader_names_list, leader_scores_list, hippo, score)
 
-#-----events----------------
-counter.penup()
-counter.goto(70,170)
-poacher1.penup()
+#--hippo move---
+def move_up():
+  y= hippo.ycor()
+  if y < 200:
+    hippo.sety(y + 30)
+
+def move_down():
+    y = hippo.ycor()
+    if y > -200:
+        hippo.sety(y - 30)
+
+#--shoot---
+bullet = trtl.Turtle()
+bullet.shape('circle')
+bullet.color('red')
+bullet.penup()
+bullet.hideturtle()
+bullet.speed(0)
+
+def shoot():
+  if not bullet.invisible(): #only shoots one bullet 
+    bullet.setx(bullet.xcor() -20)
+    #check if shot
+    for poacher in [poacher1,poacher2, poacher3,poacher4]:
+      if bullet.distance(poacher) <30:
+        bullet.hideturtle()
+        poacher.goto(-225,rand.randint(-150,150))
+        change_score()
+        return
+    wn.ontimer(move_bullet,50)
+  else:
+    bullet.hideturtle
+
+#-----poacher placement-----
 poacher1.goto(-225,150)
-poacher1.showturtle()
-poacher1.shapesize()
-poacher2.penup()
-poacher2.goto(-225,48)
-poacher2.showturtle()
-poacher2.shapesize()
-poacher3.penup()
-poacher3.goto(-225,-60)
-poacher3.showturtle()
-poacher3.shapesize()
-poacher4.penup()
+poacher2.goto(-225,50)
+poacher3.goto(-225,-50)
 poacher4.goto(-225,-150)
-poacher4.showturtle()
-poacher4.shapesize()
-hippo.penup()
+
 hippo.goto(225,0)
 hippo.showturtle()
-hippo.shapesize()
+
+#-----keyboard bindings-----
+wn.listen()
+wn.onkeypress(move_up, "Up")
+wn.onkeypress(move_down, "Down")
+wn.onkeypress(shoot, "space")
 
 
 
-
-wn.listen
 wn.ontimer(countdown, counter_interval) 
 wn.bgpic("background.gif")
 wn.setup(width=848, height=539)

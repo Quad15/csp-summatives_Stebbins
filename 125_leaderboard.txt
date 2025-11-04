@@ -1,5 +1,5 @@
 bruh,7
 bruh,6
-l,0
+bruh,2
 l,0
 l,0
