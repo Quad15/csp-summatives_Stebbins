@@ -72,7 +72,10 @@ def countdown():
     counter.write("Time's Up", font=font_setup)
     timer_up = True
     manage_leaderboard()
-    spot.hideturtle()
+    hippo.hideturtle()
+    for p in [poacher1, poacher2, poacher3, poacher4]:
+     p.hideturtle()
+
   else:
     counter.write("Timer: " + str(timer), font=font_setup)
     timer -= 1
@@ -114,18 +117,24 @@ bullet.hideturtle()
 bullet.speed(0)
 
 def shoot():
-  if not bullet.invisible(): #only shoots one bullet 
-    bullet.setx(bullet.xcor() -20)
-    #check if shot
-    for poacher in [poacher1,poacher2, poacher3,poacher4]:
-      if bullet.distance(poacher) <30:
+  if not bullet.isvisible():  
+    bullet.goto(hippo.xcor() - 40, hippo.ycor())   
+    bullet.showturtle()
+    move_bullet()           
+
+
+def move_bullet():
+  if bullet.xcor() > -250:
+    bullet.setx(bullet.xcor() - 20)
+    for poacher in [poacher1, poacher2, poacher3, poacher4]:
+      if bullet.distance(poacher) < 30:
         bullet.hideturtle()
-        poacher.goto(-225,rand.randint(-150,150))
+        poacher.goto(-225, rand.randint(-150,150))
         change_score()
         return
     wn.ontimer(move_bullet,50)
   else:
-    bullet.hideturtle
+    bullet.hideturtle()
 
 #-----poacher placement-----
 poacher1.goto(-225,150)
