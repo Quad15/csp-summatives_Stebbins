@@ -1,4 +1,5 @@
-bruh,4
-l,1
-bro,1
-bruh,0
+sda,11
+anna,10
+omer,8
+omer,8
+bruh,8

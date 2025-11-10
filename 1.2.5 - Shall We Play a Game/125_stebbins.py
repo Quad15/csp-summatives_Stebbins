@@ -9,6 +9,7 @@ leader_names_list = []
 leader_scores_list = []
 max_chars = 6
 player_name =trtl.textinput('name','enter your name with max chars'+str(max_chars)+':')
+trtl.textinput('','use the up and down keys and the space bar')
 leader_names_list = lb.get_names('125_leaderboard.txt')
 leader_scores_list = lb.get_scores('125_leaderboard.txt')
 player_name = player_name[:max_chars]
@@ -48,7 +49,7 @@ score_writer.goto(-20,165)
 score_writer.pendown()
 score_writer.write(score,font=font_setup)
 score_writer.hideturtle()
-timer = 5
+timer = 25
 counter_interval = 1000   #1000 represents 1 second
 timer_up = False
 
