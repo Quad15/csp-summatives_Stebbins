@@ -1,0 +1,5 @@
+sda,11
+anna,10
+omer,8
+omer,8
+bruh,8
